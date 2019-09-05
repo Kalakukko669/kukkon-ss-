@@ -328,3 +328,5 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+/hello-world/Hello-world/Hello-world/obj
+/hello-world/Hello-world/Hello-world/bin
