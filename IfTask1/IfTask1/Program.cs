@@ -24,7 +24,6 @@ namespace IfTask1
                 {
                     Console.WriteLine($"Luku {userInputNumber} on negatiivinen.");
                 }
-
             }
                                   
         }
