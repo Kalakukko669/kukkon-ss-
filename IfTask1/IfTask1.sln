@@ -5,21 +5,21 @@ VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IfTask1", "IfTask1\IfTask1.csproj", "{706B5C7F-4FC2-40F7-987C-C17B4712D036}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IfTask2", "IfTask2\IfTask2.csproj", "{BFB51D5C-E807-4D9E-9EE1-2AC20607A76E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IfTask1.2", "IfTask2\IfTask1.2.csproj", "{BFB51D5C-E807-4D9E-9EE1-2AC20607A76E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IfTask1.3", "IfTask1.3\IfTask1.3.csproj", "{4F55FB86-2212-47C8-9BD8-6E84749BE4BE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "If task4", "If task4\If task4.csproj", "{EFF42372-A14C-4029-A0CE-FD6EDFEC4E8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "if task1.4", "If task4\if task1.4.csproj", "{EFF42372-A14C-4029-A0CE-FD6EDFEC4E8B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "if tasks ticket price", "if tasks ticket price\if tasks ticket price.csproj", "{BDAE87B3-9598-4082-9B82-5E91AFD0F40C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.1 if  silmukka", "3.1 if  silmukka\3.1 if  silmukka.csproj", "{C55F70E7-EDE2-48CA-9941-37FDA559EE1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iftask loop example", "iftask32\Iftask loop example.csproj", "{8A523A84-A4CC-49CD-95C6-9F3B0CF1DA10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Iftask loop example", "iftask32\Iftask loop example.csproj", "{8A523A84-A4CC-49CD-95C6-9F3B0CF1DA10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qwerty123", "qwerty123\qwerty123.csproj", "{77EF03A6-E42C-4C5D-809D-7AFC3BEEC17C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "qwerty123", "qwerty123\qwerty123.csproj", "{77EF03A6-E42C-4C5D-809D-7AFC3BEEC17C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordQueryExample2", "PasswordQueryExample2\PasswordQueryExample2.csproj", "{6F94248B-8D56-4130-B63F-9610EFC8A103}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PasswordQueryExample2", "PasswordQueryExample2\PasswordQueryExample2.csproj", "{6F94248B-8D56-4130-B63F-9610EFC8A103}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

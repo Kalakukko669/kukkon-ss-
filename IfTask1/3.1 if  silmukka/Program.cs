@@ -13,6 +13,8 @@ namespace _3._1_if__silmukka
             int D = int.Parse(Console.ReadLine());
             Console.WriteLine("Syötä 3.luku");
             int P = int.Parse(Console.ReadLine());
+
+              
         }
     }
 }
