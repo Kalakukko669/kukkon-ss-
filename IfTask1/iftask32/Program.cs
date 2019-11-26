@@ -23,7 +23,6 @@ namespace iftask32
                 j++; //Laskurin kasvatus yhdellä
                 Console.WriteLine(j);//Tulostus
             }
-
            
             Console.WriteLine("DoWhile-----------------");
 
@@ -36,8 +35,6 @@ namespace iftask32
 
             Console.WriteLine("Ohjelman suoritus on päättynyt!");
                 
-            
-
         }
     }
 }
