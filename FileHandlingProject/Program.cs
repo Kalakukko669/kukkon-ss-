@@ -9,8 +9,13 @@ namespace FileHandlingProject
         {
             Console.WriteLine("Tieodoston kirjoitus ja luku esimerkki.");
             string path = @"c:\temp\MyTest.txt";
-            //string path = @"c:\\temp\\MyTest.txt";
-            // Create a file to write to.
+
+            WriteToFile(path);
+            Readfile(path);
+  
+        }
+        static void WriteToFile(string path)
+        {
             DateTime currentTime = DateTime.Now;
             using (StreamWriter sw = File.AppendText(path))
             {
@@ -20,11 +25,9 @@ namespace FileHandlingProject
                 sw.WriteLine("Welcome");
                 sw.WriteLine("Tässä on Aatu");
             }
-
-
-
-
-            // Open the file to read from.
+        }
+        static void Readfile(string path)
+        {
             using (StreamReader sr = File.OpenText(path))
             {
                 string s;
