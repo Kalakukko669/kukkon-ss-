@@ -17,12 +17,23 @@ namespace ReferenseNumber
                 switch (userChoise)
                 {
                     case 'C':
-                        ReferenseNumberChecker();//Calling method ReferenseNumberChercke
+                        //ReferenseNumberChecker();//Calling method ReferenseNumberChercke
+
+                        string inputnumbervalue = Console.ReadLine();
+                        if (ReferenseNumberCheck(inputnumbervalue) == true)
+                        {
+                            Console.WriteLine($"Your entered input value{inputnumbervalue} is right");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Your entere referense numner{inputnumbervalue} is wrong");
+                        }
+
                         Console.WriteLine("Press any key to continue");
                         Console.ReadKey();
                         break;
                     case 'N':
-                        ReferenseNumberCreator();//Calling metod Referense NumberCreator
+                        //ReferenseNumberCreator();//Calling metod Referense NumberCreator
                         Console.WriteLine("Press any key to continue");
                         Console.ReadKey();
                         break;
@@ -55,62 +66,97 @@ namespace ReferenseNumber
             return char.ToUpper(Console.ReadKey().KeyChar);
         }
 
-        static void ReferenseNumberChecker()
-        {
-            int summary = 0;
-            char lastNumber;
-            char validMark;
-            int numberLength = 0;
-            Console.WriteLine("Please enter referensenumber to check it:");            
-            string userInput = Console.ReadLine();
-            int userInputInt = int.Parse(userInput);            
-            numberLength = userInput.Length;
-            lastNumber = userInput[numberLength - 1];
-            userInput = userInput.Remove(numberLength - 1, 1);
+                //static void ReferenseNumberChecker()
+                //{
+                //    Console.WriteLine("Please enter referensenumber to check it: ");
+                //    string userInput = Console.ReadLine();
+                //    int summary = 0;
+                //    char lastNumber;
+                //    char valueMark;
+                //    int numberLength = 0;                                                        
+                //    numberLength = userInput.Length;
+                //    lastNumber = userInput[numberLength - 1];
+                //    userInput = userInput.Remove(numberLength - 1, 1); 
             
-            int userInputLen = userInput.Length;
-
-
-            int n = 3;
-            for (int i = userInput.Length-1; i>=0; i--)//this for loop sum user input numbers to last
-            {
+                //    int n = 3;
+                //    for (int i = userInput.Length-1; i>=0; i--)//this for loop sum user input numbers to last
+                //    {
                
                 
-                if (n == 3)
-                {
-                    summary += summary +int.Parse(userInput[i].ToString())  *7;
-                    n--;
-                }
-                else if (n == 2)
-                {
-                    summary += summary + int.Parse(userInput[i].ToString()) * 3;
-                    n--;
-                }
-                else if (n == 1)
-                {
-                    summary += summary + int.Parse(userInput[i].ToString()) * 1;
-                    n = 3;
-                }
-            }
-            Console.WriteLine(summary);// this line was made check if summary is right
-            int numbValidator = summary + int.Parse(lastNumber.ToString());
-            if (numbValidator % 10 == 0)
-            {
-                Console.WriteLine($"Your Input is correct ref numb");
-            }
-            else
-            {
-                Console.WriteLine("Wrong");
-            }
+                //        if (n == 3)
+                //        {
+                //            summary = summary +int.Parse(userInput[i].ToString())  *7;
+                //            n--;
+                //        }
+                //        else if (n == 2)
+                //        {
+                //            summary = summary + int.Parse(userInput[i].ToString()) * 3;
+                //            n--;
+                //        }
+                //        else if (n == 1)
+                //        {
+                //            summary = summary + int.Parse(userInput[i].ToString()) * 1;
+                //            n = 3;
+                //        }
+                //    }
+                //    Console.WriteLine(summary);// this line was made check if summary is right
+                //    int numbValidator = summary + int.Parse(lastNumber.ToString());
+                //    if (numbValidator % 10 == 0)
+                //    {
+                //        Console.WriteLine($"Your : {userInput}{lastNumber} is correct reference number");
+                //    }
+                //    else
+                //    {
+                //        Console.WriteLine("Referencenumber is Wrong");
+                //    }
             
             
             //Console.WriteLine(summary+int.Parse(lastNumber.ToString()));
             //Console.WriteLine(  summary+=int.Parse(lastNumber.ToString())%10);
            
-        }
-        static void ReferenseNumberCreator()
+    
+        
+        static bool ReferenseNumberCheck(string inputnumbervalue)
         {
-           
+            int summary = 0;
+            char lastNumber;                //userinput is valid referencenumber
+            int numberLength = 0;
+            numberLength = inputnumbervalue.Length;
+            lastNumber = inputnumbervalue[numberLength - 1];
+            inputnumbervalue = inputnumbervalue.Remove(numberLength - 1, 1);
+
+
+            int n = 3;
+            for (int i = inputnumbervalue.Length - 1; i >= 0; i--)  //This loop sums userinput numbers
+            {                                               //from last to first by 731 rule without 
+                                                            //original userinput last number
+                if (n == 3)
+                {
+                    summary = summary + int.Parse(inputnumbervalue[i].ToString()) * 7;
+                    n--;
+                }
+                else if (n == 2)
+                {
+                    summary = summary + int.Parse(inputnumbervalue[i].ToString()) * 3;
+                    n--;
+                }
+                else if (n == 1)
+                {
+                    summary = summary + int.Parse(inputnumbervalue[i].ToString()) * 1;
+                    n = 3;
+                }
+            }
+            // Console.WriteLine(summary); this line was to check if summary is right
+            int numbValidator = summary + int.Parse(lastNumber.ToString());
+            if (numbValidator % 10 == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
 
     
