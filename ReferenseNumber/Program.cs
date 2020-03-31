@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Text;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.IO;
+
+
 
 
 namespace ReferenseNumber
@@ -57,7 +59,7 @@ namespace ReferenseNumber
         {
             Console.WriteLine(
                 "-----\n\nThis program Checks reference number and creates them as many as you want and saves" +
-                " them in 'Referensenumber.txt' file.\n\n-----\n ");
+                " one of them in 'referensenumbers.txt' file.\n\n-----\n ");
             Console.WriteLine("---Reference number interface---.");
             Console.WriteLine("[C] Checking reference number.");
             Console.WriteLine("[N] Creating new reference number.");
@@ -234,11 +236,14 @@ namespace ReferenseNumber
 
         static void ManyReferenceNumberCreating()
         {
+            
             string userInput;
             int InputAmountReferenseNumbers;
             int lenghtOfRefNumb = 19;
             bool amountTimeManufacturing = true;
             int basePart;
+            
+            
             StringBuilder sb = new StringBuilder();//Created String Builder object and added using System.Text;
             List<String> referenseNumbers = new List<String>();//Created List where referense numbers are aded;
             Random rndm = new Random();//Created Random Number generator;
@@ -253,10 +258,10 @@ namespace ReferenseNumber
 
             } while ((userInput.Length <= 2 || userInput.Length >= 21 || !Int32.TryParse(userInput, out basePart) ||
                       basePart < 0 ));
+
+           
             lenghtOfRefNumb = lenghtOfRefNumb - userInput.Length;
             Console.Clear();
-            
-
             do
             {
                 Console.WriteLine(
@@ -266,24 +271,70 @@ namespace ReferenseNumber
 
 
 
-            } while ((InputAmountReferenseNumbers <= 0 || InputAmountReferenseNumbers >= 1000));
-
+            } while ((InputAmountReferenseNumbers< 0 || InputAmountReferenseNumbers >= 1000));
 
             Console.Clear();
-            Console.WriteLine(lenghtOfRefNumb);
-            Console.WriteLine(InputAmountReferenseNumbers);
-            Console.WriteLine(basePart);
             //testing how i do this
 
             while (amountTimeManufacturing)
             {
-                for (int i = 0; i < InputAmountReferenseNumbers; i++)
+                
+                for (int i = 0; InputAmountReferenseNumbers > i; i++)
                 {
                     sb.Append(basePart.ToString() + "-");
+
+                    for (int j = 0; lenghtOfRefNumb < j; j++)
+                    {
+                        sb.Append(rndm.Next(0, 10).ToString());
+                    }
+
+                    foreach (String listedReferenses in referenseNumbers)
+                    {
+                        if (listedReferenses == sb.ToString())
+                        {
+
+                            sb.Clear();//Clears All copies 
+                            sb.Append(userInput + "-");
+
+                            for (int j = 0; j < lenghtOfRefNumb; j++)
+                            {
+                                sb.Append(rndm.Next(0, 10).ToString());
+                            }
+
+                        }
+
+                    }
+
+                    referenseNumbers.Add(sb.ToString());
+                    sb.Clear();
+
                 }
-                Console.WriteLine(sb);
-                
+
+
+
+
+
+
                 amountTimeManufacturing = false;
+            }
+              
+
+
+            foreach (String allreferenseNumbers in referenseNumbers)
+            {
+
+
+                Console.WriteLine(allreferenseNumbers);
+
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(
+                    "\\jytky kone private key\\dev\\jytkykoodi\\kukkon-ss-\\ReferenseNumber\\ referensenumbers.txt"))
+                {
+                    file.WriteLine(allreferenseNumbers);
+                }
+
+               
+
+
             }
 
 
