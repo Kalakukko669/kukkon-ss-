@@ -1,6 +1,7 @@
 ﻿using System;
-
-
+using System.Text;
+using System.Collections.Generic;
+using System.ComponentModel;
 
 
 namespace ReferenseNumber
@@ -10,8 +11,9 @@ namespace ReferenseNumber
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            //Console.WriteLine("Program checks Referensenumber rightnes.");
+            //Console.WriteLine("Program checks Referensenumber rightness.");
             //User interface
+
             char userChoise;
 
             do
@@ -32,6 +34,7 @@ namespace ReferenseNumber
                         break;
                     case 'M':
                         ManyReferenceNumberCreating();
+
                         Console.WriteLine("Press any key to continue");
                         Console.ReadKey();
                         break;
@@ -70,6 +73,9 @@ namespace ReferenseNumber
             string userInput = InputNumberValidator();
             int summary = 0;
             char lastNumber;
+            StringBuilder sb = new StringBuilder();//Created String Builder object and added using System.Text;
+            List<String> referenseNumbers = new List<String>();//Created List where referense numbers are aded;
+            Random rndm = new Random();//Created Random Number generator;
 
             int numberLength = 0;
             numberLength = userInput.Length;
@@ -228,8 +234,60 @@ namespace ReferenseNumber
 
         static void ManyReferenceNumberCreating()
         {
+            string userInput;
+            int InputAmountReferenseNumbers;
+            int lenghtOfRefNumb = 19;
+            bool amountTimeManufacturing = true;
+            int basePart;
+            StringBuilder sb = new StringBuilder();//Created String Builder object and added using System.Text;
+            List<String> referenseNumbers = new List<String>();//Created List where referense numbers are aded;
+            Random rndm = new Random();//Created Random Number generator;
+
+            do
+            {
+                Console.WriteLine(
+                    "\nIf you need to read this lines again your entered Reference number first part isn't right. " +
+                    "\nEnter the first 3 to 19 characters of the reference number:");
+
+                userInput = Console.ReadLine().Replace(" ", "").Replace("-", "");
+
+            } while ((userInput.Length <= 2 || userInput.Length >= 21 || !Int32.TryParse(userInput, out basePart) ||
+                      basePart < 0 ));
+            lenghtOfRefNumb = lenghtOfRefNumb - userInput.Length;
+            Console.Clear();
             
 
+            do
+            {
+                Console.WriteLine(
+                    "\nIf you need to read this lines again your entered amount Referense Numbers is biger than 1000 or 0 and lesser. " +
+                    "\nEnter number bigger than 0 and bigger than 1000:");
+                InputAmountReferenseNumbers = Int32.Parse((Console.ReadLine().Replace(" ", "").Replace("-", "")));
+
+
+
+            } while ((InputAmountReferenseNumbers <= 0 || InputAmountReferenseNumbers >= 1000));
+
+
+            Console.Clear();
+            Console.WriteLine(lenghtOfRefNumb);
+            Console.WriteLine(InputAmountReferenseNumbers);
+            Console.WriteLine(basePart);
+            //testing how i do this
+
+            while (amountTimeManufacturing)
+            {
+                for (int i = 0; i < InputAmountReferenseNumbers; i++)
+                {
+                    sb.Append(basePart.ToString() + "-");
+                }
+                Console.WriteLine(sb);
+                
+                amountTimeManufacturing = false;
+            }
+
+
         }
+
     }
 }
