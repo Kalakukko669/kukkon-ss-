@@ -1,5 +1,8 @@
 ﻿using System;
 
+
+
+
 namespace ReferenseNumber
 {
     class Program
@@ -10,7 +13,7 @@ namespace ReferenseNumber
             //Console.WriteLine("Program checks Referensenumber rightnes.");
             //User interface
             char userChoise;
-            
+
             do
             {
                 Console.Clear();
@@ -28,6 +31,7 @@ namespace ReferenseNumber
                         Console.ReadKey();
                         break;
                     case 'M':
+                        ManyReferenceNumberCreating();
                         Console.WriteLine("Press any key to continue");
                         Console.ReadKey();
                         break;
@@ -40,17 +44,21 @@ namespace ReferenseNumber
                         Console.ReadKey();
                         break;
                 }
+
                 Console.ReadLine();
             } while (userChoise != 'X');
 
-        }//End main Program
+        } //End main Program
+
         static char UserInterface()
         {
-            Console.WriteLine("-----\n\nThis program Checks reference number and creates them as many as you want and saves" +
-                  " them in 'Referensenumber.txt' file.\n\n-----\n ");
+            Console.WriteLine(
+                "-----\n\nThis program Checks reference number and creates them as many as you want and saves" +
+                " them in 'Referensenumber.txt' file.\n\n-----\n ");
             Console.WriteLine("---Reference number interface---.");
             Console.WriteLine("[C] Checking reference number.");
             Console.WriteLine("[N] Creating new reference number.");
+            Console.WriteLine("[M] Creating many new reference number.");
             Console.WriteLine("[X] Closing program.");
             Console.WriteLine("Choose what to do: ");
             return char.ToUpper(Console.ReadKey().KeyChar);
@@ -62,7 +70,7 @@ namespace ReferenseNumber
             string userInput = InputNumberValidator();
             int summary = 0;
             char lastNumber;
-            
+
             int numberLength = 0;
             numberLength = userInput.Length;
             lastNumber = userInput[numberLength - 1];
@@ -101,6 +109,7 @@ namespace ReferenseNumber
             {
                 Console.WriteLine("Referensenumber is Wrong");
             }
+
             Console.WriteLine(summary + int.Parse(lastNumber.ToString()));
             Console.WriteLine(summary += int.Parse(lastNumber.ToString()) % 10);
             //static bool ReferenseNumberCheck(string inputNumberValue)
@@ -146,6 +155,7 @@ namespace ReferenseNumber
 
             //}
         }
+
         static string InputNumberValidator()
         {
             string input = "";
@@ -155,17 +165,19 @@ namespace ReferenseNumber
                 Console.WriteLine("Enter referense, witch have  only numbers and is 4-20 marks long.");
                 Console.Write("Enter your Number:");
                 input = Console.ReadLine().Replace(" ", "").Replace("-", "");
-            }
-            while (input.Length <= 3 || input.Length >= 21 || !Int32.TryParse(input, out inputNumber) || inputNumber < 0);
+            } while (input.Length <= 3 || input.Length >= 21 || !Int32.TryParse(input, out inputNumber) ||
+                     inputNumber < 0);
+
             return input;
         }
+
         static void ReferenseNumberCreator()
         {
             string userInput = CreatorInputNumberValidator();
 
-            while (userInput.Length <= 2 || userInput.Length >= 20);
+            while (userInput.Length <= 2 || userInput.Length >= 20) ;
             int sum = 0;
-            int[] multiplier = new int[] { 7, 3, 1 };
+            int[] multiplier = new int[] {7, 3, 1};
             int[] referenseArray = new int[userInput.Length];
 
             for (int i = 0; i < userInput.Length; i++)
@@ -177,14 +189,16 @@ namespace ReferenseNumber
             {
                 sum += referenseArray[referenseArray.Length - 1 - i] * multiplier[i % 3];
             }
+
             int checkNumber = 10 - (sum % 10);
             if (checkNumber == 10)
             {
                 checkNumber = 0;
             }
+
             Console.WriteLine($"Your input number is : {userInput}");
 
-            string referenseNumberOutput = userInput+ checkNumber;
+            string referenseNumberOutput = userInput + checkNumber;
             for (int i = 1; i < referenseNumberOutput.Length; i++)
             {
                 if (i % 5 == 0)
@@ -192,8 +206,10 @@ namespace ReferenseNumber
                     referenseNumberOutput = referenseNumberOutput.Insert(i, " ");
                 }
             }
+
             Console.WriteLine($"New referense number is : {referenseNumberOutput}");
         }
+
         static string CreatorInputNumberValidator()
         {
             string input = "";
@@ -204,9 +220,16 @@ namespace ReferenseNumber
                 Console.WriteLine("Enter the first 3 to 19 characters of the reference number.");
 
                 input = Console.ReadLine().Replace(" ", "").Replace("-", "");
-            }
-            while (input.Length <= 2 || input.Length >= 21 || !Int32.TryParse(input, out inputNumber) || inputNumber < 0);
+            } while (input.Length <= 2 || input.Length >= 21 || !Int32.TryParse(input, out inputNumber) ||
+                     inputNumber < 0);
+
             return input;
+        }
+
+        static void ManyReferenceNumberCreating()
+        {
+            
+
         }
     }
 }
